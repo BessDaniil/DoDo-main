@@ -2,6 +2,7 @@ package com.test.dodo;
 
 import com.test.dodo.model.DoDoCountriesDto;
 import com.test.dodo.model.DoDoCountryDto;
+import com.test.dodo.model.PizzeriasDto;
 import com.test.dodo.service.DoDoCountryService;
 import com.test.dodo.service.DoDoPizzeriaService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class DoDoExecutor {
 
     @PostConstruct
     public void execute() {
-        final List<String> result = new ArrayList<>();
+        final List<PizzeriasDto> result = new ArrayList<>();
 
         final DoDoCountriesDto doDoCountriesDto = doDoCountryService.findCountries();
 
@@ -36,7 +37,7 @@ public class DoDoExecutor {
         }
 
         for (Integer id : countryIds) {
-            final String pizzeriasInCountry = doDoPizzeriaService.findPizzeriasByCountryId(id);
+            final PizzeriasDto pizzeriasInCountry = doDoPizzeriaService.findPizzeriasByCountryId(id);
             result.add(pizzeriasInCountry);
         }
 

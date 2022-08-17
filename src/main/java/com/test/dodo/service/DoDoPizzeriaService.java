@@ -1,5 +1,8 @@
 package com.test.dodo.service;
 
+import com.test.dodo.model.Pizzeria;
+import com.test.dodo.model.PizzeriaDto;
+import com.test.dodo.model.PizzeriasDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -12,7 +15,7 @@ public class DoDoPizzeriaService {
 
     private final RestTemplate restTemplate;
 
-    public String findPizzeriasByCountryId(final Integer countryId) {
-        return restTemplate.getForObject(FIND_PIZZERIAS_URL + countryId, String.class);
+    public PizzeriasDto findPizzeriasByCountryId(final Integer countryId) {
+        return restTemplate.getForObject(FIND_PIZZERIAS_URL + countryId, PizzeriasDto.class);
     }
 }
