@@ -1,6 +1,7 @@
 package com.test.dodo.model;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
 public class DoDoCountryDto {
